@@ -2,14 +2,22 @@ name: Jira Auto Hold Daily
 
 on:
   schedule:
-    - cron: "50 15 * * *"   # 15:50 UTC = 22:50 WIB
-  workflow_dispatch:
+    # Cron: 23:15 WIB = 16:15 UTC
+    - cron: "15 16 * * *"
+  workflow_dispatch:  # Bisa dijalankan manual
 
 jobs:
   run:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Show current time (for logging)
+        run: |
+          echo "Current UTC: $(date -u)"
+          echo "Current WIB: $(TZ='Asia/Jakarta' date)"
 
       - name: Run Auto Hold Script
         env:
