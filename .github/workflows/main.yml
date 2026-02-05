@@ -2,10 +2,9 @@ name: Jira Auto Hold Daily
 
 on:
   schedule:
-    # Cron: 23:15 WIB = 16:15 UTC
-    - cron: "10 18 * * *"
-  workflow_dispatch:  # Bisa dijalankan manual
-
+    - cron: "0 13 * * *"
+  workflow_dispatch:
+  
 jobs:
   run:
     runs-on: ubuntu-latest
