@@ -3,7 +3,7 @@ name: Jira Auto Hold Daily
 on:
   schedule:
     # Cron: 23:15 WIB = 16:15 UTC
-    - cron: "40 16 * * *"
+    - cron: "10 18 * * *"
   workflow_dispatch:  # Bisa dijalankan manual
 
 jobs:
